@@ -1,61 +1,64 @@
+/* Reset básico */
 body {
   margin: 0;
   padding: 0;
 }
 
+/* Estilos base del Navbar */
 .navbar {
-  background-color: #0824a4;
-  padding: 0.8rem 0; /* Reducido el padding vertical */
-  color: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  box-sizing: border-box;
+  --navbar-height: 68px;
+  --logo-height: 52px;
+  --mobile-padding: 20px;
+  --tablet-padding: 30px;
+  --desktop-padding: 40px;
+  
+  background-color: var(--color-lasalle);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1000;
+  width: 100%;
+  height: var(--navbar-height);
+  display: flex;
+  align-items: center;
+  color: white;
 }
 
+/* Contenedor principal */
 .navbar-container {
-  max-width: 1200px; /* Aumentado el ancho máximo */
-  margin: 0 auto; /* Centra el logo horizontalmente */
-  display: flex; /* Alinea el logo horizontalmente */
-  justify-content: flex-start; /* Alinea el logo horizontalmente */
-  align-items: center; /* Alinea el logo verticalmente */
-  height: 100%; /* Ajusta el alto del logo */
-  padding: 0 2%; /* Usando porcentaje para mejor adaptación */
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0 0 0 var(--mobile-padding);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
 }
 
+/* Logo */
 .navbar-logo {
-  display: flex; /* Alinea el logo horizontalmente */
-  align-items: center; /* Alinea el logo verticalmente */
-  height: 100%; /* Ajusta el alto del logo */
-  margin-left: 1rem; /* Mueve el logo un poco a la derecha */
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 .logo-image {
-  height: 48px; /* Reducido el tamaño del logo */
+  height: var(--logo-height);
   width: auto;
   transition: opacity 0.3s ease;
+  display: block;
 }
 
-/* Usando clamp para un diseño más fluido */
-.navbar-container {
-  width: min(100% - 2rem, 1200px);
-  margin-inline: auto;
-  padding-inline: 1rem;
-}
-
-/* Ajuste para pantallas muy grandes */
-@media (min-width: 1536px) {
+/* Media Queries */
+@media (min-width: 768px) {
   .navbar-container {
-    width: min(100% - 4rem, 1400px);
+    padding-left: var(--tablet-padding) !important;
   }
 }
 
-/* Ajuste para dispositivos móviles */
-@media (max-width: 768px) {
-    .navbar-logo {
-      margin-left: 0.5rem; /* Un poco más de margen en móviles */
-    }
+@media (min-width: 1024px) {
+  .navbar-container {
+    padding-left: var(--desktop-padding) !important;
+  }
 }
