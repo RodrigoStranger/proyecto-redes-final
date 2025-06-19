@@ -1,12 +1,11 @@
 import Navbar from './layouts/Navbar';
+import Home from './pages/Home';
 
 function App() {
   return (
     <div>
       <Navbar />
-      <div style={{ padding: '2rem' }}>
-        <h1>Página de Inicio</h1>
-      </div>
+      <Home />
     </div>
   );
 }

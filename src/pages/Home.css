@@ -1,0 +1,66 @@
+/* Variables de diseño responsivo */
+:root {
+  --mobile-padding: 20px;
+  --tablet-padding: 30px;
+  --desktop-padding: 40px;
+  --navbar-height: 68px;
+}
+
+.home-container {
+  /* Ajuste para el espacio del navbar fijo */
+  padding-top: calc(var(--navbar-height) - 2rem);
+  padding-left: var(--mobile-padding);
+  padding-right: var(--mobile-padding);
+  padding-bottom: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  min-height: calc(100vh - var(--navbar-height));
+  box-sizing: border-box;
+}
+
+.home-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.home-subtitle {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .home-container {
+    padding-left: var(--tablet-padding);
+    padding-right: var(--tablet-padding);
+    padding-top: calc(var(--navbar-height) - 2rem);
+  }
+  
+  .home-title {
+    font-size: 2.5rem;
+  }
+  
+  .home-subtitle {
+    font-size: 1.2rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .home-container {
+    padding-left: var(--desktop-padding);
+    padding-right: var(--desktop-padding);
+    padding-top: calc(var(--navbar-height) - 2rem);
+  }
+  
+  .home-title {
+    font-size: 3rem;
+  }
+  
+  .home-subtitle {
+    font-size: 1.3rem;
+  }
+}
