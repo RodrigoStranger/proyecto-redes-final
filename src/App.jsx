@@ -1,7 +1,12 @@
+import Navbar from './layouts/Navbar';
+
 function App() {
   return (
     <div>
-      <h1>Hola mundo</h1>
+      <Navbar />
+      <div style={{ padding: '2rem' }}>
+        <h1>Página de Inicio</h1>
+      </div>
     </div>
   );
 }
