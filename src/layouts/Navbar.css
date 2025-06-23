@@ -6,11 +6,11 @@ body {
 
 /* Estilos base del Navbar */
 .navbar {
-  --navbar-height: 68px;
-  --logo-height: 52px;
-  --mobile-padding: 20px;
-  --tablet-padding: 30px;
-  --desktop-padding: 40px;
+  --navbar-height: 65px; /* Altura del navbar */
+  --logo-height: 45px; /* Altura del logo */
+  --mobile-padding: 20px; /* Espacio a la izquierda en móviles */
+  --tablet-padding: 30px; /* Espacio a la izquierda en tabletas */
+  --desktop-padding: 40px; /* Espacio a la izquierda en escritorios */
   
   background-color: var(--color-lasalle);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -44,10 +44,10 @@ body {
 }
 
 .logo-image {
-  height: var(--logo-height);
-  width: auto;
-  transition: opacity 0.3s ease;
-  display: block;
+  height: var(--logo-height); /* Altura del logo */
+  width: auto; /* Mantiene la proporción de la imagen */
+  transition: opacity 0.3s ease; /* Transición suave para el hover */
+  display: block; /* Asegura que la imagen sea un bloque */
 }
 
 /* Media Queries */

@@ -1,0 +1,23 @@
+@import url('../utils/Colors.js');
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 1.5rem;
+  margin: 1rem;
+  max-width: 320px;
+  transition: box-shadow 0.2s;
+}
+.card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+.card-title {
+  color: #0824a4; /* color_lasalle */
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+.card-description {
+  font-size: 1rem;
+    color: black /* color_text */
+}
