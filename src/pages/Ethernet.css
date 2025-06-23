@@ -1,0 +1,26 @@
+/* Estilos responsivos para la página de Ethernet */
+.ethernet-container {
+  width: 100vw;
+  min-height: calc(100vh - var(--navbar-height, 68px));
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: calc(var(--navbar-height, 68px) + 1.5rem) var(--mobile-padding, 20px) 2rem var(--mobile-padding, 20px);
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .ethernet-container {
+    padding-left: var(--tablet-padding, 30px);
+    padding-right: var(--tablet-padding, 30px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .ethernet-container {
+    padding-left: var(--desktop-padding, 40px);
+    padding-right: var(--desktop-padding, 40px);
+  }
+}
