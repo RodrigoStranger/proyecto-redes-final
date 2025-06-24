@@ -1,4 +1,3 @@
-import React from "react";
 import { References } from "../utils/References";
 import "./Footer.css";
 

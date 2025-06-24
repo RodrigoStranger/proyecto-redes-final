@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { Colors } from '../utils/Colors';
 import './Navbar.css';
