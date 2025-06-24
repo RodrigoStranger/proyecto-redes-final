@@ -1,0 +1,291 @@
+.ethernet-builder-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 2rem;
+  margin: 2rem 0;
+  width: 100%;
+}
+.ethernet-builder {
+  background: none;
+  border-radius: 12px;
+  box-shadow: none;
+  padding: 2rem;
+  max-width: 700px;
+  flex: 1 1 60%;
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+.ethernet-builder-info {
+  flex: 1 1 35%;
+  background: none;
+  border-radius: 12px;
+  box-shadow: none;
+  padding: 1.5rem 1.2rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 1.05rem;
+  color: #111;
+  min-width: 270px;
+  width: 100%;
+  align-self: flex-start;
+  box-sizing: border-box;
+}
+@media (max-width: 900px) {
+  .ethernet-builder-row {
+    flex-direction: column;
+  }
+  .ethernet-builder {
+    max-width: 100%;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 1.2rem 0.5rem;
+  }
+  .ethernet-builder-info {
+    max-width: 100%;
+    margin-bottom: 2rem;
+  }
+}
+.ethernet-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+.ethernet-form-group {
+  flex: 1 1 250px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+.ethernet-form-group label {
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: #0824a4;
+  cursor: help;
+}
+.ethernet-form-group input {
+  padding: 0.5rem 0.7rem;
+  border: 1px solid #bdbdbd;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+}
+.ethernet-form-group input:focus {
+  border: 1.5px solid #0824a4;
+}
+.ethernet-form-group input.error {
+  border: 1.5px solid #b71c1c;
+}
+.ethernet-error {
+  color: #b71c1c;
+  font-size: 0.95rem;
+  margin-top: 0.2rem;
+}
+.ethernet-header-visual {
+  margin-top: 2rem;
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 1rem;
+}
+.ethernet-header-visual h3 {
+  color: #0824a4; /* Azul La Salle */
+  font-weight: bold;
+}
+.ethernet-header-hex, .ethernet-header-bin {
+  margin: 0.5rem 0;
+  font-family: monospace;
+  font-size: 1.05rem;
+  word-break: break-all;
+}
+.ethernet-header-graphic {
+  margin-top: 1.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+.ethernet-header-field {
+  transition: box-shadow 0.2s, background 0.2s, color 0.2s;
+  box-shadow: 0 1px 4px rgba(8,36,164,0.07);
+  font-size: 1.01rem;
+  position: relative;
+}
+.ethernet-header-field:hover {
+  box-shadow: 0 2px 8px #0824a433;
+  z-index: 2;
+}
+.ethernet-header-field:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 50%;
+  top: 120%;
+  transform: translateX(-50%);
+  background: #fff;
+  color: #111;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px #0002;
+  padding: 0.7em 1em;
+  font-size: 1rem;
+  font-weight: 500;
+  white-space: pre-line;
+  z-index: 10;
+  min-width: 220px;
+  max-width: 320px;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.2s;
+}
+.ethernet-sim-btn {
+  margin-top: 1.5rem;
+  background: #0824a4;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7em 1.6em;
+  font-size: 1.08rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #0824a422;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.ethernet-sim-btn:hover {
+  background: #0b36d1;
+  box-shadow: 0 4px 16px #0824a433;
+}
+.ethernet-sim-btn.random {
+  background: #1b5e20;
+}
+.ethernet-sim-btn.random:hover {
+  background: #388e3c;
+}
+.ethernet-sim-msg {
+  margin-top: 1.1rem;
+  background: #e3f2fd;
+  color: #0d47a1;
+  border-radius: 8px;
+  padding: 0.7em 1.2em;
+  font-size: 1.08rem;
+  font-weight: 600;
+  box-shadow: 0 2px 8px #0824a422;
+  text-align: center;
+  max-width: 520px;
+  word-break: break-all;
+}
+.ethernet-sim-msg strong {
+  color: #0d47a1;
+}
+.ethernet-info-title {
+  color: #0824a4; /* Azul La Salle */
+  font-weight: bold;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+}
+.ethernet-info-list {
+  color: #111;
+  margin-bottom: 1.2em;
+  padding-left: 1.2em;
+}
+.ethernet-info-text {
+  color: #111;
+  margin-bottom: 1.2em;
+}
+/* Botones: responsividad y alineación */
+.ethernet-btns-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 1.5rem;
+}
+@media (max-width: 700px) {
+  .ethernet-btns-row {
+    flex-direction: column;
+    gap: 0.7rem;
+    width: 100%;
+  }
+  .ethernet-sim-btn,
+  .ethernet-sim-btn.random {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    display: block;
+    box-sizing: border-box;
+  }
+  .ethernet-header-visual {
+    padding: 0.7rem 0.3rem;
+    font-size: 0.98rem;
+  }
+  .ethernet-header-visual h3 {
+    font-size: 1.1rem;
+  }
+  .ethernet-header-hex, .ethernet-header-bin {
+    font-size: 0.98rem;
+  }
+  .ethernet-header-graphic {
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .ethernet-header-field {
+    font-size: 0.97rem;
+    padding: 0.18em 0.3em;
+    margin-right: 0;
+    margin-bottom: 4px;
+  }
+  .ethernet-header-datos-hex {
+    font-size: 0.97rem;
+  }
+  .ethernet-sim-btn,
+  .ethernet-sim-btn.random {
+    width: 100%;
+    min-width: 0;
+    font-size: 1.05rem;
+    padding: 0.7em 0;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    display: block;
+    box-sizing: border-box;
+  }
+  .ethernet-sim-msg {
+    max-width: 100%;
+    font-size: 0.98rem;
+    padding: 0.7em 0.5em;
+  }
+  .ethernet-header-datos-hex {
+    margin-top: 8px;
+    font-size: 1.04rem;
+    word-break: break-all;
+    overflow-x: auto;
+    max-width: 100%;
+    white-space: pre-line;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5em;
+  }
+  .ethernet-header-datos-hex code {
+    font-family: monospace;
+    font-size: 1em;
+    background: none;
+    color: #222;
+    padding: 0;
+    word-break: break-all;
+    overflow-x: auto;
+    max-width: 100%;
+    display: block;
+  }
+  .ethernet-builder-info {
+    padding: 0 0.3rem 0.2rem 0.3rem;
+    margin-top: -0.7rem;
+  }
+  .ethernet-info-title {
+    margin-top: 0.1em;
+    margin-bottom: 0.15em;
+    font-size: 1.04rem;
+  }
+  .ethernet-info-list {
+    margin-bottom: 0.3em;
+    font-size: 0.96rem;
+  }
+  .ethernet-info-text {
+    font-size: 0.95rem;
+  }
+}
