@@ -275,7 +275,7 @@ const EthernetHeaderBuilder = () => {
             <li>Ingrese las direcciones MAC de destino y origen en formato hexadecimal, separadas por dos puntos (:)</li>
             <li>Especifique el Ethertype según el protocolo que desea utilizar (por ejemplo, 0800 para IPv4)</li>
             <li>Agregue los datos que desea enviar en formato hexadecimal. Asegúrese de que la longitud sea adecuada según el protocolo Ethernet.</li>
-            <li>Haga clic en "Generar datos aleatorios" para obtener un ejemplo automático o en "Simular envío" para ver cómo se vería la cabecera en hexadecimal y binario.</li>
+            <li>Haga clic en "Generar datos aleatorios" para obtener un ejemplo automático para ver cómo se vería la cabecera en hexadecimal y binario.</li>
           </ol>
           <h3 className="ethernet-info-title">Ética y Legalidad</h3>
           <p className="ethernet-info-text">
