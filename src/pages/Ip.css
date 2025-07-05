@@ -1,0 +1,63 @@
+/* Estilos responsivos para la página de IP, similar a Ethernet */
+.ip-container {
+  width: 100vw;
+  min-height: calc(100vh - var(--navbar-height, 68px));
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: calc(var(--navbar-height, 68px) + 1.5rem) var(--mobile-padding, 20px) 2rem var(--mobile-padding, 20px);
+  box-sizing: border-box;
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .ip-container {
+    padding-left: var(--tablet-padding, 30px);
+    padding-right: var(--tablet-padding, 30px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .ip-container {
+    padding-left: var(--desktop-padding, 40px);
+    padding-right: var(--desktop-padding, 40px);
+  }
+}
+
+.ip-title {
+  color: var(--color-lasalle);
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+.ip-section-title {
+  font-size: 1.2rem;
+  color: #0824a4;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+.ip-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+  background: #f9f9f9;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: left;
+}
+.ip-table th, .ip-table td {
+  border: 1px solid #e0e0e0;
+  padding: 0.7rem 1rem;
+  text-align: left;
+}
+.ip-table th {
+  background: #e3eafc;
+  color: #0824a4;
+}
+.ip-info-text {
+  color: #111;
+  margin-bottom: 1.2em;
+}

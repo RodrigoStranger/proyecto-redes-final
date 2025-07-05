@@ -4,11 +4,13 @@ import "./CardList.css";
 const cards = [
   {
     title: "Ethernet",
-    description: "Construye y visualiza la cabecera del protocolo Ethernet."
+    description: "Construye y visualiza la cabecera del protocolo Ethernet.",
+    route: "/ethernet"
   },
   {
     title: "IP",
-    description: "Explora los campos y funciones de la cabecera IP."
+    description: "Explora los campos y funciones de la cabecera IP.",
+    route: "/ip"
   },
   {
     title: "TCP",
@@ -27,7 +29,7 @@ const cards = [
 const CardList = () => (
   <div className="card-list">
     {cards.map((card, idx) => (
-      <Card key={idx} title={card.title} description={card.description} />
+      <Card key={idx} {...card} />
     ))}
   </div>
 );

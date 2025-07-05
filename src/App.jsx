@@ -3,6 +3,7 @@ import Home from './pages/Home';
 import Footer from './layouts/Footer';
 import Ethernet from './pages/Ethernet';
 import NotFound from './pages/NotFound';
+import Ip from './pages/Ip';
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/ethernet" element={<Ethernet />} />
+          <Route path="/ip" element={<Ip />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
