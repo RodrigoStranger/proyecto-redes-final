@@ -14,7 +14,9 @@ const cards = [
   },
   {
     title: "TCP",
-    description: "Analiza y comprende la cabecera del protocolo TCP."
+    description: "Constructor y visualizador de cabeceras TCP. Aprende sobre el protocolo de transporte más usado en Internet.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/5/51/TCP_Header_Fields.png",
+    route: "/tcp",
   },
   {
     title: "UDP",
