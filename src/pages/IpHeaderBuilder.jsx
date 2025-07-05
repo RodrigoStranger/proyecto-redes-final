@@ -236,25 +236,20 @@ const IpHeaderBuilder = () => {
         </div>
       </div>
       <aside className="ip-header-builder-info">
-        <h3 className="ip-info-title">Instrucciones</h3>
-        <ol className="ip-info-list">
-          <li>Ingrese los campos de la cabecera IP según corresponda. Puede usar el botón de aleatorio para ver ejemplos.</li>
-          <li>Las direcciones IP deben estar en formato decimal con puntos (ej: 192.168.0.1).</li>
-          <li>Los campos hexadecimales deben tener la longitud indicada y solo contener dígitos hexadecimales válidos.</li>
-          <li>El campo "Datos" es opcional y se convierte automáticamente a hexadecimal.</li>
-          <li>Puede ver la cabecera generada en hexadecimal, binario y visualmente por campo.</li>
-          <li>Haga clic en "Simular envío" para ver la simulación de encapsulamiento.</li>
-        </ol>
-        <h3 className="ip-info-title">Importancia del Protocolo IP</h3>
-        <p className="ip-info-text">
-          El protocolo IP es la base de la comunicación en Internet y redes modernas. Permite que los datos viajen de un dispositivo a otro, sin importar la distancia o la tecnología de red utilizada. Sin IP, no existiría la interconexión global que conocemos hoy.
-        </p>
-        <ul className="ip-info-list">
-          <li>Permite el direccionamiento único de cada dispositivo en la red.</li>
-          <li>Hace posible el enrutamiento eficiente de paquetes a través de múltiples redes.</li>
-          <li>Soporta fragmentación y reensamblado para adaptarse a diferentes tecnologías físicas.</li>
-          <li>Es independiente del hardware y de la tecnología de transmisión.</li>
-        </ul>
+        <h3 className="ip-info-title">Descripción de los campos de la cabecera IP</h3>
+        <p><b>Versión:</b> Indica la versión del protocolo IP utilizada (4 para IPv4, 6 para IPv6). Define el formato general del paquete.</p>
+        <p><b>IHL (Longitud de cabecera):</b> Especifica el tamaño de la cabecera IP en palabras de 32 bits. Permite saber dónde comienzan los datos.</p>
+        <p><b>Tipo de servicio (TOS):</b> Permite asignar prioridades y definir la calidad de servicio para el manejo de los paquetes en la red.</p>
+        <p><b>Longitud total:</b> Indica el tamaño total del paquete IP, incluyendo cabecera y datos, expresado en bytes.</p>
+        <p><b>Identificación:</b> Número único que identifica cada paquete enviado, útil para la reensambladura de fragmentos.</p>
+        <p><b>Flags:</b> Controla la fragmentación de los paquetes. Indica si el paquete puede fragmentarse y si es el último fragmento.</p>
+        <p><b>Fragment offset:</b> Especifica la posición de un fragmento dentro del paquete original, permitiendo el reensamblaje correcto.</p>
+        <p><b>TTL (Time To Live):</b> Limita la vida útil del paquete en la red, evitando bucles infinitos. Se decrementa en cada salto.</p>
+        <p><b>Protocolo:</b> Indica el protocolo de la capa superior al que se entregarán los datos (por ejemplo, TCP, UDP, ICMP).</p>
+        <p><b>Checksum:</b> Suma de verificación que permite detectar errores en la cabecera del paquete.</p>
+        <p><b>IP Origen:</b> Dirección IP del dispositivo que envía el paquete.</p>
+        <p><b>IP Destino:</b> Dirección IP del dispositivo receptor del paquete.</p>
+        <p><b>Datos:</b> Información transportada por el paquete, puede ser de cualquier protocolo de capa superior.</p>
         <h3 className="ip-info-title">Curiosidades y Datos</h3>
         <ul className="ip-info-list">
           <li>IPv4 utiliza direcciones de 32 bits, permitiendo unos 4 mil millones de direcciones únicas.</li>

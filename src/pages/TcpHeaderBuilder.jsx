@@ -381,6 +381,19 @@ const TcpHeaderBuilder = () => {
         <p className="tcp-info-text">
           Constructor de cabeceras TCP para aprendizaje sobre redes y protocolos. Soporta generación de campos aleatorios y visualización avanzada.
         </p>
+        <h3 className="tcp-info-title">Descripción de la cabecera TCP</h3>
+        <p><b>Puerto Origen:</b> Puerto del dispositivo que envía el segmento.</p>
+        <p><b>Puerto Destino:</b> Puerto del dispositivo receptor.</p>
+        <p><b>Número de secuencia:</b> Identifica el orden de los bytes enviados, esencial para la entrega ordenada y la retransmisión.</p>
+        <p><b>Número de acuse (ACK):</b> Indica el siguiente byte que el receptor espera recibir, confirmando la recepción de datos previos.</p>
+        <p><b>Data Offset:</b> Longitud de la cabecera TCP en palabras de 32 bits.</p>
+        <p><b>Reservado:</b> Bits reservados para uso futuro, deben estar en cero.</p>
+        <p><b>Flags:</b> Bits de control que gestionan el establecimiento, finalización y control de la conexión (SYN, ACK, FIN, RST, PSH, URG).</p>
+        <p><b>Ventana:</b> Tamaño de la ventana de recepción, usado para control de flujo.</p>
+        <p><b>Checksum:</b> Suma de verificación para detectar errores en la cabecera y los datos.</p>
+        <p><b>Urgent Pointer:</b> Indica si hay datos urgentes en el segmento.</p>
+        <p><b>Opciones:</b> Permite funcionalidades adicionales como escalado de ventana o timestamps.</p>
+        <p><b>Datos:</b> Información transportada por el segmento, normalmente datos de la aplicación.</p>
       </aside>
     </div>
   );

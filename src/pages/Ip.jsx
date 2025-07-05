@@ -33,23 +33,6 @@ const Ip = () => {
         </ul>
       </section>
       <section>
-        <h2 className="ip-section-title">Estructura de la cabecera IP</h2>
-        <p>
-          La cabecera IP contiene información esencial para el enrutamiento y entrega de los paquetes, como la versión, longitud, direcciones de origen y destino, TTL, protocolo, y suma de verificación.
-        </p>
-        <ul>
-          <li><strong>Versión:</strong> Indica si es IPv4 o IPv6.</li>
-          <li><strong>Longitud de cabecera:</strong> Tamaño de la cabecera en palabras de 32 bits.</li>
-          <li><strong>Tipo de servicio:</strong> Prioridad y calidad del servicio.</li>
-          <li><strong>Longitud total:</strong> Tamaño total del paquete (cabecera + datos).</li>
-          <li><strong>Identificación, flags y fragment offset:</strong> Para fragmentación y reensamblado.</li>
-          <li><strong>TTL:</strong> Tiempo de vida del paquete.</li>
-          <li><strong>Protocolo:</strong> Indica el protocolo de la capa superior (TCP, UDP, ICMP, etc.).</li>
-          <li><strong>Suma de verificación:</strong> Verifica la integridad de la cabecera.</li>
-          <li><strong>Dirección IP origen y destino:</strong> Identifican el emisor y receptor.</li>
-        </ul>
-      </section>
-      <section>
         <h2 className="ip-section-title">Ventajas y desventajas</h2>
         <table className="ip-table">
           <thead>
@@ -73,12 +56,12 @@ const Ip = () => {
             </tr>
           </tbody>
         </table>
-      </section>
-      <section>
-        <h2 className="ip-section-title">Acerca de</h2>
-        <p className="ip-info-text">
-          Visualizador educativo de la cabecera IP para aprendizaje sobre redes y protocolos. Pronto podrás construir y analizar cabeceras IP de forma interactiva.
-        </p>
+        <div style={{marginTop: '1.5em'}}>
+          <h2 className="ip-section-title">Estructura de la cabecera IP</h2>
+          <p>
+            La cabecera IP contiene información esencial para el enrutamiento y entrega de los paquetes, como la versión, longitud, direcciones de origen y destino, TTL, protocolo, y suma de verificación.
+          </p>
+        </div>
       </section>
       <IpHeaderBuilder />
     </div>
