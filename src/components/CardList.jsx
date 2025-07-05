@@ -20,7 +20,8 @@ const cards = [
   },
   {
     title: "UDP",
-    description: "Visualiza la estructura de la cabecera UDP."
+    description: "Visualiza la estructura de la cabecera UDP.",
+    route: "/udp"
   },
   {
     title: "ICMP",

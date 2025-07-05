@@ -1,0 +1,437 @@
+/* Estilos responsivos para la página de UDP, similar a IP/Ethernet */
+.udp-container {
+  width: 100vw;
+  min-height: calc(100vh - var(--navbar-height, 68px));
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: calc(var(--navbar-height, 68px) + 1.5rem) var(--mobile-padding, 20px) 2rem var(--mobile-padding, 20px);
+  box-sizing: border-box;
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .udp-container {
+    padding-left: var(--tablet-padding, 30px);
+    padding-right: var(--tablet-padding, 30px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .udp-container {
+    padding-left: var(--desktop-padding, 40px);
+    padding-right: var(--desktop-padding, 40px);
+  }
+}
+
+.udp-title {
+  color: var(--color-lasalle);
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.udp-section-title {
+  font-size: 1.2rem;
+  color: #0824a4;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+.udp-info-title {
+  color: #0824a4;
+  font-weight: bold;
+  margin-top: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.udp-info-list {
+  margin-left: 1.2em;
+  margin-bottom: 1.2em;
+  padding-left: 0.5em;
+}
+
+.udp-info-text {
+  color: #222;
+  font-size: 1.01rem;
+  margin-bottom: 1.2em;
+}
+
+/* Estilos para la tabla de ventajas y desventajas */
+.udp-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+  background: #f9f9f9;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: left;
+}
+
+.udp-table th, .udp-table td {
+  border: 1px solid #e0e0e0;
+  padding: 0.7rem 1rem;
+  text-align: left;
+}
+
+.udp-table th {
+  background: #e3eafc;
+  color: #0824a4;
+}
+
+/* Estilos específicos para la tabla de características */
+.udp-feature-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0 2rem;
+  background: #f9f9f9;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: left;
+}
+
+.udp-feature-table th, .udp-feature-table td {
+  border: 1px solid #e0e0e0;
+  padding: 0.7rem 1rem;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.udp-feature-table th {
+  background: #e3eafc;
+  color: #0824a4;
+  font-weight: 600;
+}
+
+.udp-pros-icon {
+  color: #2e7d32;
+  margin-right: 0.5rem;
+  font-weight: bold;
+}
+
+.udp-cons-icon {
+  color: #c62828;
+  margin-right: 0.5rem;
+  font-weight: bold;
+}
+
+/* Ajustes responsivos para la tabla */
+@media (max-width: 768px) {
+  .udp-feature-table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .udp-feature-table th,
+  .udp-feature-table td {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .udp-title {
+    font-size: 1.5rem;
+    margin-top: 1.2rem;
+  }
+  .udp-section-title {
+    font-size: 1.1rem;
+  }
+}
+
+/* Estilos para el constructor de cabecera UDP */
+.udp-header-builder {
+  background: none;
+  border-radius: 12px;
+  box-shadow: none;
+  padding: 2rem 0;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 1.5rem;
+}
+
+.udp-header-visual {
+  margin-top: 1.5rem;
+  background: #f1f6ff;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px #0824a422;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.7rem;
+}
+
+.udp-header-field {
+  transition: box-shadow 0.2s, background 0.2s;
+  box-shadow: 0 1px 4px rgba(8,36,164,0.07);
+  font-size: 1.01rem;
+  position: relative;
+  padding: 0.8rem 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 6px;
+  background: white;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.udp-header-field:hover {
+  box-shadow: 0 2px 8px #0824a433;
+  z-index: 2;
+}
+
+.udp-header-field .field-name {
+  font-weight: 600;
+  color: #0824a4;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.udp-header-field .field-value {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.05rem;
+  word-break: break-all;
+  color: #222;
+}
+
+.udp-header-field .field-bits {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.8rem;
+  font-size: 0.75rem;
+  color: #7f8c8d;
+  background: #f5f5f5;
+  padding: 0.1rem 0.5rem;
+  border-radius: 10px;
+}
+
+/* Estilos para el formulario */
+.udp-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.udp-form-group {
+  flex: 1 1 220px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.udp-form-group label {
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: #0824a4;
+  cursor: help;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.udp-form-group input {
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #bdbdbd;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.udp-form-group input:focus {
+  border: 1.5px solid #0824a4;
+}
+
+.udp-form-group input.error {
+  border: 1.5px solid #b71c1c;
+}
+
+.udp-error {
+  color: #b71c1c;
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
+}
+
+/* Botones */
+.udp-btns-row {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.udp-btn {
+  background: #0824a4;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7em 1.6em;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #0824a422;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.udp-btn:hover {
+  background: #0b36d1;
+  box-shadow: 0 4px 12px #0824a433;
+  transform: translateY(-1px);
+}
+
+.udp-btn.secondary {
+  background: #f5f5f5;
+  color: #0824a4;
+  border: 1px solid #ddd;
+}
+
+.udp-btn.secondary:hover {
+  background: #e0e0e0;
+}
+
+/* Mensajes de simulación */
+.udp-simulation {
+  margin-top: 1.5rem;
+  padding: 1.2rem;
+  border-radius: 8px;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.udp-simulation.success {
+  background: #e8f5e9;
+  color: #1b5e20;
+  border-left: 4px solid #2e7d32;
+}
+
+.udp-simulation.error {
+  background: #ffebee;
+  color: #b71c1c;
+  border-left: 4px solid #c62828;
+}
+
+.udp-simulation pre {
+  margin: 0.5rem 0 0 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.95rem;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 0.8rem;
+  border-radius: 4px;
+  margin-top: 0.8rem;
+}
+
+/* Selector de vista binaria/hexadecimal */
+.udp-view-toggle {
+  display: inline-flex;
+  border: 1px solid #bdbdbd;
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 1.2rem 0;
+}
+
+.udp-view-toggle button {
+  padding: 0.5rem 1.2rem;
+  border: none;
+  background: #f5f5f5;
+  color: #555;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+}
+
+.udp-view-toggle button:first-child {
+  border-right: 1px solid #ddd;
+}
+
+.udp-view-toggle button.active {
+  background: #0824a4;
+  color: white;
+}
+
+/* Tooltips */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  margin-left: 0.3rem;
+  cursor: help;
+}
+
+.tooltip-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  background-color: #0824a4;
+  color: white;
+  border-radius: 50%;
+  font-size: 0.7rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  width: 220px;
+  background-color: #2c3e50;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 0.7rem;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 0.9rem;
+  font-weight: normal;
+  line-height: 1.4;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 600px) {
+  .udp-btns-row {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  
+  .udp-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .udp-form-group {
+    flex: 1 1 100%;
+  }
+  
+  .udp-header-field {
+    padding: 0.7rem 0.8rem;
+  }
+  
+  .udp-header-field .field-name {
+    font-size: 0.9rem;
+  }
+  
+  .udp-header-field .field-value {
+    font-size: 0.95rem;
+  }
+}

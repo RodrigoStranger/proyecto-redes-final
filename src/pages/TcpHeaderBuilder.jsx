@@ -316,8 +316,13 @@ const TcpHeaderBuilder = () => {
           <button className="tcp-sim-btn random" type="button" onClick={handleRandom}>
             Generar datos aleatorios
           </button>
-          <button className="tcp-sim-btn" type="button" onClick={handleSimular}>
-            Simular envío
+          <button 
+            className="tcp-sim-btn" 
+            type="button" 
+            onClick={handleSimular}
+            disabled={simulando}
+          >
+            {simulando ? 'Simulando...' : 'Simular envío'}
           </button>
         </div>
         {showSim && (

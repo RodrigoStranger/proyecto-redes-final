@@ -183,8 +183,13 @@ const IpHeaderBuilder = () => {
           <button className="ip-sim-btn random" type="button" onClick={handleRandom}>
             Generar datos aleatorios
           </button>
-          <button className="ip-sim-btn" type="button" onClick={handleSimular}>
-            Simular envío
+          <button 
+            className="ip-sim-btn" 
+            type="button" 
+            onClick={handleSimular}
+            disabled={simulando}
+          >
+            {simulando ? 'Simulando...' : 'Simular envío'}
           </button>
         </div>
         {showSim && (
