@@ -1,22 +1,44 @@
-/* Estilos para la página y builder de TCP, igualando la experiencia visual de IP/Ethernet */
+/* Estilos responsivos para la página de TCP, similar a IP/Ethernet */
 .tcp-container {
-  padding: 2rem 0.5rem 2.5rem 0.5rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-.tcp-title {
-  color: #0824a4;
-  font-size: 2.3rem;
-  font-weight: bold;
-  margin-bottom: 1.5rem;
-  margin-top: 2.5rem;
+  width: 100vw;
+  min-height: calc(100vh - var(--navbar-height, 68px));
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: calc(var(--navbar-height, 68px) + 1.5rem) var(--mobile-padding, 20px) 2rem var(--mobile-padding, 20px);
+  box-sizing: border-box;
   text-align: left;
 }
+
+@media (min-width: 768px) {
+  .tcp-container {
+    padding-left: var(--tablet-padding, 30px);
+    padding-right: var(--tablet-padding, 30px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .tcp-container {
+    padding-left: var(--desktop-padding, 40px);
+    padding-right: var(--desktop-padding, 40px);
+  }
+}
+
+.tcp-title {
+  color: var(--color-lasalle);
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
 .tcp-section-title {
+  font-size: 1.2rem;
   color: #0824a4;
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 0.7rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  text-align: left;
 }
 .tcp-info-title {
   color: #0824a4;
