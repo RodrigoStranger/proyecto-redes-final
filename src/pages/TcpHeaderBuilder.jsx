@@ -40,51 +40,201 @@ const TcpHeaderBuilder = () => {
   const [simMsg, setSimMsg] = useState("");
   const [showSim, setShowSim] = useState(false);
 
+  // Validación específica por tipo de campo
+  const validateField = (name, value) => {
+    const portRegex = /^\d{1,5}$/;
+    const hex8Regex = /^[0-9A-Fa-f]{8}$/;
+    const hex2Regex = /^[0-9A-Fa-f]{2}$/;
+    const hex4Regex = /^[0-9A-Fa-f]{4}$/;
+    const hexVarRegex = /^[0-9A-Fa-f]{0,12}$/;
+    
+    // Si el campo está vacío pero es requerido
+    if ((!value || value.trim() === '') && name !== 'options' && name !== 'data') {
+      return 'Este campo es requerido';
+    }
+    
+    switch (name) {
+      case 'sourcePort':
+      case 'destPort':
+        if (!portRegex.test(value)) return 'Debe ser un número';
+        const port = parseInt(value, 10);
+        if (port < 0 || port > 65535) return 'Puerto inválido (0-65535)';
+        if (port === 0) return 'El puerto 0 está reservado';
+        if (port < 1024) return 'Puerto bien conocido (0-1023) - requiere privilegios';
+        if (port < 49152) return 'Puerto registrado (1024-49151)';
+        return '';
+        
+      case 'seqNumber':
+      case 'ackNumber':
+        if (!hex8Regex.test(value)) return 'Se requieren exactamente 8 dígitos hexadecimales';
+        return '';
+        
+      case 'dataOffset':
+        if (!/^\d+$/.test(value)) return 'Debe ser un número entre 5 y 15';
+        const offset = parseInt(value, 10);
+        if (offset < 5) return 'Mínimo 5 (20 bytes de cabecera)';
+        if (offset > 15) return 'Máximo 15 (60 bytes de cabecera)';
+        return '';
+        
+      case 'reserved':
+        return value === '0' ? '' : 'Debe ser 0 (reservado según RFC 793)';
+        
+      case 'flags':
+        if (!hex2Regex.test(value)) return 'Se requieren exactamente 2 dígitos hexadecimales';
+        // Validar combinaciones comunes de flags
+        const flags = parseInt(value, 16);
+        // Verificar bits reservados (bits 6 y 7 deben ser 0)
+        if ((flags & 0xC0) !== 0) return 'Bits 6 y 7 están reservados (deben ser 0)';
+        // Validar combinaciones inválidas
+        if ((flags & 0x01) && (flags & 0x04)) return 'FIN y RST no pueden estar activos juntos';
+        if ((flags & 0x01) && !(flags & 0x02) && (flags & 0x10)) return 'FIN sin SYN no es común con ACK';
+        return '';
+        
+      case 'window':
+        if (!hex4Regex.test(value)) return 'Se requieren exactamente 4 dígitos hexadecimales';
+        const windowSize = parseInt(value, 16);
+        if (windowSize === 0) return 'Ventana de tamaño 0 no permitida';
+        return '';
+        
+      case 'checksum':
+        if (!hex4Regex.test(value)) return 'Se requieren exactamente 4 dígitos hexadecimales';
+        return '';
+        
+      case 'urgentPointer':
+        if (!hex4Regex.test(value)) return 'Se requieren exactamente 4 dígitos hexadecimales';
+        const urgent = parseInt(value, 16);
+        if (urgent > 0 && !(parseInt(values.flags || '00', 16) & 0x20)) {
+          return 'URG debe estar activo si se usa Urgent Pointer';
+        }
+        return '';
+        
+      case 'options':
+        if (value && !hexVarRegex.test(value)) return 'Máx 12 dígitos hexadecimales (hasta 40 bytes)';
+        // Validar formato de opciones TCP si se proporcionan
+        if (value) {
+          const options = value.match(/.{1,2}/g) || [];
+          for (let i = 0; i < options.length; i++) {
+            const opt = parseInt(options[i], 16);
+            
+            // No-Operation (1 byte)
+            if (opt === 1) continue;
+            
+            // End of Option List (1 byte)
+            if (opt === 0) {
+              // Debe ser la última opción
+              if (i !== options.length - 1) return 'End of Option debe ser la última opción';
+              continue;
+            }
+            
+            // MSS (2 bytes de tipo y longitud + 2 bytes de valor)
+            if (opt === 2) {
+              if (i + 3 >= options.length) return 'Opción MSS incompleta';
+              const len = parseInt(options[i + 1], 16);
+              if (len !== 4) return 'Longitud MSS debe ser 4';
+              i += 3; // Saltar los bytes de MSS
+              continue;
+            }
+            
+            // Window Scale (3 bytes)
+            if (opt === 3) {
+              if (i + 2 >= options.length) return 'Opción Window Scale incompleta';
+              const len = parseInt(options[i + 1], 16);
+              if (len !== 3) return 'Longitud Window Scale debe ser 3';
+              i += 2; // Saltar los bytes de Window Scale
+              continue;
+            }
+            
+            // Timestamp (10 bytes)
+            if (opt === 8) {
+              if (i + 9 >= options.length) return 'Opción Timestamp incompleta';
+              const len = parseInt(options[i + 1], 16);
+              if (len !== 10) return 'Longitud Timestamp debe ser 10';
+              i += 9; // Saltar los bytes de Timestamp
+              continue;
+            }
+            
+            // Si no es una opción reconocida
+            if (i + 1 >= options.length) return 'Opción desconocida o incompleta';
+            const len = parseInt(options[i + 1], 16);
+            if (isNaN(len) || len < 2 || i + len > options.length) return 'Longitud de opción inválida';
+            i += len - 1; // Saltar según la longitud de la opción
+          }
+        }
+        return '';
+        
+      case 'data':
+        // Validar longitud máxima de datos (opcional)
+        if (value.length > 32) return 'Máximo 32 caracteres';
+        return '';
+        
+      default:
+        return '';
+    }
+  };
+
+  // Validar todos los campos
+  const validateAll = () => {
+    const newErrors = {};
+    let isValid = true;
+    
+    Object.keys(values).forEach(key => {
+      const error = validateField(key, values[key]);
+      if (error) {
+        newErrors[key] = error;
+        isValid = false;
+      }
+    });
+    
+    setErrors(newErrors);
+    return isValid;
+  };
+
+  // Manejar cambios en los campos
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setValues((v) => ({ ...v, [name]: value }));
+    
+    // Limpieza de entrada según el tipo de campo
+    let cleanedValue = value;
+    if (['sourcePort', 'destPort', 'dataOffset'].includes(name)) {
+      // Solo números
+      cleanedValue = value.replace(/[^0-9]/g, '');
+    } else if (name === 'reserved') {
+      // Forzar a 0 y no permitir otros valores
+      cleanedValue = '0';
+      // No permitir que el usuario cambie este valor
+      e.target.value = '0';
+    } else if (['seqNumber', 'ackNumber', 'flags', 'window', 'checksum', 'urgentPointer', 'options'].includes(name)) {
+      // Solo hexadecimal
+      cleanedValue = value.replace(/[^0-9A-Fa-f]/g, '').toUpperCase();
+    }
+    
+    // Aplicar límites de longitud
+    const field = campos.find(f => f.name === name);
+    if (field && field.maxLength && cleanedValue.length > field.maxLength) {
+      cleanedValue = cleanedValue.slice(0, field.maxLength);
+    }
+    
+    // Actualizar estado
+    setValues(prev => ({
+      ...prev,
+      [name]: cleanedValue
+    }));
+    
+    // Validación en tiempo real
+    const error = validateField(name, cleanedValue);
+    setErrors(prev => ({
+      ...prev,
+      [name]: error || undefined
+    }));
   };
 
-  const validate = () => {
-    const errs = {};
-    if (!/^\d{1,5}$/.test(values.sourcePort) || parseInt(values.sourcePort) > 65535) {
-      errs.sourcePort = "Puerto inválido (0-65535)";
-    }
-    if (!/^\d{1,5}$/.test(values.destPort) || parseInt(values.destPort) > 65535) {
-      errs.destPort = "Puerto inválido (0-65535)";
-    }
-    if (!/^[0-9A-Fa-f]{8}$/.test(values.seqNumber)) {
-      errs.seqNumber = "8 dígitos hex";
-    }
-    if (!/^[0-9A-Fa-f]{8}$/.test(values.ackNumber)) {
-      errs.ackNumber = "8 dígitos hex";
-    }
-    if (!/^\d{1}$/.test(values.dataOffset) || parseInt(values.dataOffset) < 5) {
-      errs.dataOffset = "Mínimo 5";
-    }
-    if (!/^\d{1}$/.test(values.reserved)) {
-      errs.reserved = "Debe ser 0";
-    }
-    if (!/^[0-9A-Fa-f]{2}$/.test(values.flags)) {
-      errs.flags = "2 dígitos hex";
-    }
-    if (!/^[0-9A-Fa-f]{4}$/.test(values.window)) {
-      errs.window = "4 dígitos hex";
-    }
-    if (!/^[0-9A-Fa-f]{4}$/.test(values.checksum)) {
-      errs.checksum = "4 dígitos hex";
-    }
-    if (!/^[0-9A-Fa-f]{4}$/.test(values.urgentPointer)) {
-      errs.urgentPointer = "4 dígitos hex";
-    }
-    if (values.options && !/^[0-9A-Fa-f]{0,12}$/.test(values.options)) {
-      errs.options = "Máx 12 dígitos hex";
-    }
-    return errs;
-  };
-
-  const handleBlur = () => {
-    setErrors(validate());
+  const handleBlur = (e) => {
+    const { name, value } = e.target;
+    const error = validateField(name, value);
+    setErrors(prev => ({
+      ...prev,
+      [name]: error || undefined
+    }));
   };
 
   // Construcción de la cabecera en hex

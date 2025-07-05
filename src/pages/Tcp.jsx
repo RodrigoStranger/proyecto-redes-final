@@ -24,6 +24,40 @@ const Tcp = () => {
           <li>Permite la comunicación bidireccional y ordenada.</li>
           <li>Utiliza el mecanismo de handshake para establecer conexiones seguras.</li>
         </ul>
+
+        <h3 className="tcp-info-title">Ventajas y Desventajas de TCP</h3>
+        <div style={{overflowX: 'auto'}}>
+          <table className="tcp-table">
+            <thead>
+              <tr>
+                <th style={{width: '50%'}}>Ventajas</th>
+                <th style={{width: '50%'}}>Desventajas</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Entrega confiable y ordenada de datos</td>
+                <td>Mayor sobrecarga de cabecera</td>
+              </tr>
+              <tr>
+                <td>Control de flujo y congestión</td>
+                <td>Mayor latencia por el handshake</td>
+              </tr>
+              <tr>
+                <td>Retransmisión de paquetes perdidos</td>
+                <td>No es óptimo para transmisiones en tiempo real</td>
+              </tr>
+              <tr>
+                <td>Comunicación full-duplex</td>
+                <td>Consumo de recursos del sistema</td>
+              </tr>
+              <tr>
+                <td>Múltiples conexiones concurrentes</td>
+                <td>Rendimiento reducido en redes rápidas con baja tasa de error</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
         <h3 className="tcp-info-title">Curiosidades y Datos</h3>
         <ul className="tcp-info-list">
           <li>TCP utiliza números de secuencia y acuse (ACK) para garantizar la entrega.</li>

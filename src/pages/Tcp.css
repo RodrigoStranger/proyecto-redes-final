@@ -56,6 +56,79 @@
   font-size: 1.01rem;
   margin-bottom: 1.2em;
 }
+
+/* Estilos para la tabla de ventajas y desventajas - Igual que en IP */
+.tcp-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+  background: #f9f9f9;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: left;
+}
+
+.tcp-table th, .tcp-table td {
+  border: 1px solid #e0e0e0;
+  padding: 0.7rem 1rem;
+  text-align: left;
+}
+
+.tcp-table th {
+  background: #e3eafc;
+  color: #0824a4;
+}
+
+/* Estilos específicos para la tabla de características */
+.tcp-feature-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0 2rem;
+  background: #f9f9f9;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: left;
+}
+
+.tcp-feature-table th, .tcp-feature-table td {
+  border: 1px solid #e0e0e0;
+  padding: 0.7rem 1rem;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.tcp-feature-table th {
+  background: #e3eafc;
+  color: #0824a4;
+  font-weight: 600;
+}
+
+.tcp-pros-icon {
+  color: #2e7d32;
+  margin-right: 0.5rem;
+  font-weight: bold;
+}
+
+.tcp-cons-icon {
+  color: #c62828;
+  margin-right: 0.5rem;
+  font-weight: bold;
+}
+
+/* Ajustes responsivos para la tabla */
+@media (max-width: 768px) {
+  .tcp-feature-table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .tcp-feature-table th,
+  .tcp-feature-table td {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.95rem;
+  }
+}
 @media (max-width: 700px) {
   .tcp-title {
     font-size: 1.5rem;
