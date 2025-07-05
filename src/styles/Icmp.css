@@ -1,4 +1,4 @@
-/* Estilos responsivos para la página de ICMP, similar a IP */
+/* Estilos responsivos para la página de ICMP */
 .ip-container {
   width: 100vw;
   min-height: calc(100vh - var(--navbar-height, 68px));

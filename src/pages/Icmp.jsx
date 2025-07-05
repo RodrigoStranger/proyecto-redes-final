@@ -1,5 +1,4 @@
-import React from "react";
-import "./Icmp.css";
+import "./styles/Icmp.css";
 import IcmpHeaderBuilder from "./IcmpHeaderBuilder";
 
 const Icmp = () => {

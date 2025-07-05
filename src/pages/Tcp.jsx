@@ -1,5 +1,4 @@
-import React from "react";
-import "./Tcp.css";
+import "./styles/Tcp.css";
 import TcpHeaderBuilder from "./TcpHeaderBuilder";
 
 const Tcp = () => {

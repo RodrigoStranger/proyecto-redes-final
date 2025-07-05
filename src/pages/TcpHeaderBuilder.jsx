@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./TcpHeaderBuilder.css";
+import "./styles/TcpHeaderBuilder.css";
 import { randomTcpHeader, hexToBin } from "../utils/tcpHeaderUtils";
 import { textToHex } from "../utils/hexText";
 

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./IpHeaderBuilder.css";
+import "./styles/IpHeaderBuilder.css";
 import { randomIpHeader, hexToBin } from "../utils/ipHeaderUtils";
 import { textToHex } from "../utils/hexText";
 

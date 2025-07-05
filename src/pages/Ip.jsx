@@ -1,5 +1,4 @@
-import React from "react";
-import "./Ip.css";
+import "./styles/Ip.css";
 import IpHeaderBuilder from "./IpHeaderBuilder"; // Asegúrate de que la ruta sea correcta
 
 const Ip = () => {
