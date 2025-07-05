@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./styles/UdpHeaderBuilder.css";
+import "@styles/UdpHeaderBuilder.css";
 
 const initialState = {
   sourcePort: "1234",

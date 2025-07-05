@@ -1,4 +1,4 @@
-import "./styles/Tcp.css";
+import "@styles/Tcp.css";
 import TcpHeaderBuilder from "./TcpHeaderBuilder";
 
 const Tcp = () => {

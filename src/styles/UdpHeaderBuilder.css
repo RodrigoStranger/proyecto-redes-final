@@ -502,6 +502,11 @@
   padding-left: 0.5em;
 }
 
+.udp-info-list li {
+  margin-bottom: 0.5rem;
+  color: #111;
+}
+
 .udp-info-text {
   color: #222;
   font-size: 1.01rem;

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./styles/EthernetHeaderBuilder.css";
+import "@styles/EthernetHeaderBuilder.css";
 import { textToHex, hexToText, hexToBin, formatHex } from "../utils/hexText";
 import { esEthertypeValido, ETHERTYPES_VALIDOS, validarEthertype, ETHERTYPES_INFO } from "../utils/ethertypes";
 import { validarMac } from "../utils/validation";

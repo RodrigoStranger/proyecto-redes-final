@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./styles/IcmpHeaderBuilder.css";
+import "@styles/IcmpHeaderBuilder.css";
 import {
   validateField,
   validateAllFields,

@@ -1,4 +1,4 @@
-import "./styles/Ethernet.css";
+import "@styles/Ethernet.css";
 import EthernetHeaderBuilder from "./EthernetHeaderBuilder";
 
 const Ethernet = () => {

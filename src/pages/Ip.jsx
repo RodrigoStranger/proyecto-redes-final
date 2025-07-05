@@ -1,4 +1,4 @@
-import "./styles/Ip.css";
+import "@styles/Ip.css";
 import IpHeaderBuilder from "./IpHeaderBuilder"; // Asegúrate de que la ruta sea correcta
 
 const Ip = () => {
