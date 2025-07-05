@@ -1,0 +1,164 @@
+/* Estilos responsivos para la página de ICMP, similar a IP */
+.ip-container {
+  width: 100vw;
+  min-height: calc(100vh - var(--navbar-height, 68px));
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: calc(var(--navbar-height, 68px) + 1.5rem) var(--mobile-padding, 20px) 2rem var(--mobile-padding, 20px);
+  box-sizing: border-box;
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .ip-container {
+    padding-left: var(--tablet-padding, 30px);
+    padding-right: var(--tablet-padding, 30px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .ip-container {
+    padding-left: var(--desktop-padding, 40px);
+    padding-right: var(--desktop-padding, 40px);
+  }
+}
+
+.ip-title {
+  color: var(--color-lasalle);
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+.ip-section-title {
+  font-size: 1.2rem;
+  color: #0824a4;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+.ip-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+  background: #f9f9f9;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: left;
+}
+
+/* Estilos para la visualización de la cabecera IP */
+.ip-header-visual {
+  background: #f5f7ff;
+  border: 1px solid #d0d9ff;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1.5rem 0;
+  font-family: monospace;
+  font-size: 0.9rem;
+}
+
+.ip-header-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+  gap: 0.5rem;
+}
+
+.ip-header-field {
+  background: white;
+  border: 1px solid #d0d9ff;
+  border-radius: 4px;
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 0.8rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Estilos para la visualización del paquete IP */
+.ip-packet-visual {
+  border: 2px solid #0824a4;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+  overflow: hidden;
+  font-family: monospace;
+  font-size: 0.9rem;
+}
+
+.ip-packet-header {
+  background: #e3e9ff;
+  padding: 0.8rem;
+  font-weight: bold;
+  border-bottom: 1px solid #d0d9ff;
+  text-align: center;
+}
+
+.ip-packet-icmp {
+  background: #f0f4ff;
+  padding: 1rem;
+}
+
+.icmp-header {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  background: white;
+  border: 1px solid #d0d9ff;
+  border-radius: 4px;
+  padding: 0.8rem;
+}
+
+.icmp-header > div {
+  padding: 0.5rem;
+  background: #f8f9ff;
+  border-radius: 3px;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+/* Estilos para títulos de sección */
+.ip-section-subtitle {
+  font-size: 1.1rem;
+  color: #1a41a8;
+  margin: 1.5rem 0 0.8rem 0;
+  font-weight: 600;
+}
+.ip-table th, .ip-table td {
+  border: 1px solid #e0e0e0;
+  padding: 0.7rem 1rem;
+  text-align: left;
+}
+.ip-table th {
+  background: #e3eafc;
+  color: #0824a4;
+}
+.ip-info-text {
+  color: #111;
+  margin-bottom: 1.2em;
+}
+
+/* Estilos adicionales para listas */
+.ip-info-list {
+  margin: 0 0 1.5rem 1.2rem;
+  padding: 0;
+  line-height: 1.6;
+}
+
+.ip-info-list li {
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+/* Estilo para títulos de información */
+.ip-info-title {
+  color: #0824a4;
+  font-weight: 600;
+  margin: 1.5rem 0 1rem 0;
+  font-size: 1.1rem;
+}
+
+.ip-info-title:first-child {
+  margin-top: 0;
+}

@@ -25,7 +25,8 @@ const cards = [
   },
   {
     title: "ICMP",
-    description: "Descubre los campos y usos de la cabecera ICMP."
+    description: "Descubre los campos y usos de la cabecera ICMP.",
+    route: "/icmp"
   }
 ];
 

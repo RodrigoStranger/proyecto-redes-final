@@ -302,15 +302,16 @@ const UdpHeaderBuilder = () => {
           <li>Haga clic en "Simular envío" para ver la simulación de encapsulamiento.</li>
         </ol>
         
-        <h3 className="udp-info-title">Importancia del Protocolo UDP</h3>
+        <h3 className="udp-info-title">Campos de la Cabecera UDP</h3>
         <p className="udp-info-text">
-          El Protocolo de Datagramas de Usuario (UDP) es fundamental para aplicaciones que requieren velocidad y eficiencia por encima de la confiabilidad. Su diseño simple y ligero lo hace ideal para servicios donde la velocidad de transmisión es crítica.
+          La cabecera UDP tiene una estructura simple de 8 bytes que contiene la información esencial para el enrutamiento y procesamiento de los datagramas:
         </p>
         <ul className="udp-info-list">
-          <li>Permite transmisiones rápidas al no requerir establecimiento de conexión ni confirmaciones de entrega.</li>
-          <li>Minimiza la sobrecarga de la red al tener una cabecera de solo 8 bytes.</li>
-          <li>Es esencial para aplicaciones en tiempo real donde la latencia es más crítica que la pérdida ocasional de paquetes.</li>
-          <li>Se utiliza en sistemas de transmisión de video/audio, juegos en línea y consultas DNS.</li>
+          <li><strong>Puerto Origen (2 bytes):</strong> Identifica la aplicación que envía el datagrama. Puede ser 0 si el origen no requiere respuesta.</li>
+          <li><strong>Puerto Destino (2 bytes):</strong> Identifica la aplicación de destino. Debe coincidir con un puerto en escucha en el equipo receptor.</li>
+          <li><strong>Longitud (2 bytes):</strong> Especifica la longitud total del datagrama en bytes, incluyendo cabecera y datos. Mínimo 8 bytes (solo cabecera).</li>
+          <li><strong>Checksum (2 bytes):</strong> Suma de verificación opcional para detectar errores en la cabecera y datos. Si no se usa, debe ser 0x0000.</li>
+          <li><strong>Datos (variable):</strong> Los datos de la aplicación. No es parte de la cabecera pero se incluye en el datagrama.</li>
         </ul>
         
         <h3 className="udp-info-title">Curiosidades y Datos</h3>

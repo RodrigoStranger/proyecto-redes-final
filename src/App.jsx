@@ -6,6 +6,7 @@ import NotFound from './pages/NotFound';
 import Ip from './pages/Ip';
 import Tcp from './pages/Tcp';
 import Udp from './pages/Udp';
+import Icmp from './pages/Icmp';
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path="/ip" element={<Ip />} />
           <Route path="/tcp" element={<Tcp />} />
           <Route path="/udp" element={<Udp />} />
+          <Route path="/icmp" element={<Icmp />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
