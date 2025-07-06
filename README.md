@@ -1,6 +1,6 @@
 # Redes y Comunicación de datos
-📅 **Ciclo Académico**: 2025 - I  
-🎓 **Semestre**: VI  
+📅 **Ciclo Académico**: 2025 - I
+🎓 **Semestre**: VI
 👨‍🏫 **Profesor**: Yasiel Pérez Vera
 ✍ **Autor**: Rodrigo Emerson Infanzón Acosta
 
