@@ -2,6 +2,8 @@
 📅 **Ciclo Académico**: 2025 - I  
 🎓 **Semestre**: VI  
 👨‍🏫 **Profesor**: Yasiel Pérez Vera
+
+
 ✍ **Autor**: Rodrigo Emerson Infanzón Acosta
 
 ---
