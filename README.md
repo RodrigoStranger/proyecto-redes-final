@@ -3,7 +3,6 @@
 🎓 **Semestre**: VI  
 👨‍🏫 **Profesor**: Yasiel Pérez Vera
 
-
 ✍ **Autor**: Rodrigo Emerson Infanzón Acosta
 
 ---
